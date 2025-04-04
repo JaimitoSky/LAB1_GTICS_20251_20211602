@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Carrera de Tortugas</title></head>
+<body>
+<h1>Carrera de Tortugas</h1>
+<form th:action="@{/carrera}" method="post" th:object="${config}">
+    <label>Selecciona tu tortuga:</label>
+    <select th:field="*{nombreTortuga}">
+        <option th:each="t : ${tortugas}" th:value="${t.nombre}" th:text="${t.nombre}"></option>
+    </select><br/>
+    <label>Selecciona el tipo de pista:</label>
+    <select th:field="*{pista}">
+        <option value="arena">Arena</option>
+        <option value="cesped">Césped</option>
+        <option value="asfalto">Asfalto</option>
+    </select><br/>
+    <label>Monto a apostar:</label>
+    <input type="number" step="0.1" th:field="*{apuesta}"/><br/>
+    <button type="submit">¡INICIAR CARRERA!</button>
+</form>
+</body>
+</html>
