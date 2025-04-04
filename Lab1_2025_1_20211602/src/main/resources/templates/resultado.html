@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Resultados de la Carrera</title></head>
+<body>
+<h1>Resultados de la Carrera</h1>
+<p>Ganador: <span th:text="${ganador}"></span></p>
+<p th:text="${mensaje}"></p>
+<p th:if="${monto > 0}">Monto ganado: $<span th:text="${monto}"></span></p>
+<ol>
+    <li th:each="t : ${tortugas}" th:text="${t.nombre}"></li>
+</ol>
+<a href="/">Volver a jugar</a>
+</body>
+</html>
